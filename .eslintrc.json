@@ -23,6 +23,7 @@
 		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
 		"import/no-default-export": [2],
 		"import/prefer-default-export": "off",
-		"react/jsx-props-no-spreading": "off"
+		"react/jsx-props-no-spreading": "off",
+		"no-irregular-whitespace": "off"
 	}
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog/dialog';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { ConsultationModal } from '../consultation';
 import { X } from '@phosphor-icons/react/dist/ssr';
@@ -31,16 +30,14 @@ export function Hero() {
 							отличительными силовыми и иными характеристиками и преимуществами
 						</p>
 						<div className='intro__bottom'>
-							<Modal>
-								<ModalTrigger asChild>
+							<ConsultationModal
+								trigger={
 									<button className='intro__button'>
 										Бесплатная консультация
 									</button>
-								</ModalTrigger>
-								<ModalContent className='political transparent'>
-									<ConsultationModal />
-								</ModalContent>
-							</Modal>
+								}
+								asChild
+							/>
 							<p className='intro__description'>
 								бесплатная доставка от 50000 рублей <br />
 								во все населённые пункты нашей страны
@@ -67,16 +64,13 @@ export function Hero() {
 							<p className='intro__disclaimer-text'>
 								Если вы продолжаете использовать наш интернет-сайт,
 								<br />
-								<Modal>
-									<ModalTrigger asChild>
+								<PolicyModal
+									trigger={
 										<span className='intro__disclaimer-political'>
 											вы соглашаетесь с условиями политики конфиденциальности
 										</span>
-									</ModalTrigger>
-									<ModalContent className='political transparent'>
-										<PolicyModal />
-									</ModalContent>
-								</Modal>
+									}
+								/>
 								, тем самым,
 								<br />
 								помогаете нам сделать наш интернет-сайт комфортнее и полезнее для

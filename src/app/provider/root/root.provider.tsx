@@ -6,6 +6,7 @@ export function RootProvider({ children }: Readonly<PropsWithChildren>) {
 		<>
 			{children}
 			<Script
+				id='schema-org'
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{
 					__html: `

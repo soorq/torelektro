@@ -1,7 +1,7 @@
-import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog/dialog';
 import { DotsThree, Phone } from '@phosphor-icons/react/dist/ssr';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { OptimizedLink } from '@/shared/ui/optimize-link';
+import { DocumentationModal } from '../documentation';
 import { ContactModal } from '../contact';
 import './header.scss';
 
@@ -66,26 +66,20 @@ export function Header() {
 									</li>
 								</ul>
 								<ul className='header__nav-items-list'>
-									<Modal>
-										<ModalTrigger asChild>
+									<DocumentationModal
+										trigger={
 											<li className='header__nav-item header-doc'>
 												Документация
 											</li>
-										</ModalTrigger>
-										<ModalContent className='documentation'>
-											{/* <DocumentationModal /> */}
-										</ModalContent>
-									</Modal>
-									<Modal>
-										<ModalTrigger asChild>
+										}
+									/>
+									<ContactModal
+										trigger={
 											<li className='header__nav-item header-contact'>
 												Контактная информация
 											</li>
-										</ModalTrigger>
-										<ModalContent className='contacts'>
-											<ContactModal />
-										</ModalContent>
-									</Modal>
+										}
+									/>
 								</ul>
 							</div>
 						</nav>

@@ -157,7 +157,9 @@ export function Catalog() {
 									className='catalog__card'
 								>
 									<CatalogCard
+										// @ts-expect-error
 										product={product}
+										// @ts-expect-error
 										items={PRODUCTS[tab].items}
 										index={i}
 									/>

@@ -1,33 +1,4 @@
 .political {
-	padding-bottom: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	width: 100%;
-	max-width: 100vw;
-	overflow: auto;
-	height: 100dvh;
-	z-index: 100;
-	transform: translateX(0px);
-	background: rgba(16, 16, 16, 0.9);
-	padding-left: 13px;
-	box-sizing: content-box;
-	&__wrapper {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		max-width: 1180px;
-		background: rgba(255, 255, 255, 1);
-		padding: 20px;
-		border-radius: 5px;
-	}
-
-	.popup__wrapper {
-		padding-top: 85px;
-		justify-content: normal;
-	}
-
 	&__title {
 		font-size: 24px;
 		display: flex;
@@ -43,6 +14,12 @@
 		color: #101010;
 		line-height: 17.6px;
 	}
+	&__text-wrapper {
+		max-height: 80dvh;
+		height: 100svh;
+		overflow-y: auto;
+	}
+
 	&__text span {
 		color: #ff3d00;
 	}

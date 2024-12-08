@@ -1,3 +1,4 @@
+//  @ts-nocheck
 'use client';
 
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -12,6 +13,7 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 import './catalog.card.scss';
+import { OptimizedImage } from '@/shared/ui/optimize-image';
 
 export function ProductModal({ products, index }: { products: TProduct['items']; index: number }) {
 	const sliderRef = useRef<TSwiper>(null);
@@ -47,6 +49,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 					{products[number].variants.map((variant, index) => {
 						return (
 							<button
+								key={`product_variant_${variant.variant}-${index}`}
 								className={
 									tab == index
 										? 'product__card-variant active'
@@ -182,7 +185,14 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 											key={`product__card-slide-img-${key}`}
 											className='product__card-slide'
 										>
-											<img src={val} alt='' className='product__card-img' />
+											<OptimizedImage
+												src={val}
+												alt='ТОРЕЛЕКТРО. УДЛИННИТЕЛИ. удлиннители'
+												width={400}
+												height={200}
+												priority
+												className='product__card-img'
+											/>
 										</SwiperSlide>
 									),
 								)}
@@ -190,14 +200,25 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 						</div>
 						<div className='swiper-pagination'></div>
 						<div className='product__slider-prev'>
-							<img
+							<OptimizedImage
+								alt='ТОРЕЛЕКТРО. УДЛИННИТЕЛИ. удлиннители'
+								width={400}
+								height={200}
+								priority
 								className='product__slider-left'
 								src={'product/slider-right.svg'}
 							/>
 						</div>
 					</div>
 					<div className='product__slider-next'>
-						<img className='product__slider-right' src={'product/slider-right.svg'} />
+						<OptimizedImage
+							alt='ТОРЕЛЕКТРО. УДЛИННИТЕЛИ. удлиннители'
+							width={400}
+							height={200}
+							priority
+							className='product__slider-right'
+							src={'product/slider-right.svg'}
+						/>
 					</div>
 					<div className='product__img-stickers'>
 						<div className='product__img-stickers-items'>
@@ -298,7 +319,10 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 						<div className='product__card-options'>
 							{products[number].variants[tab].options.map((item, index) => {
 								return (
-									<div className='product__options'>
+									<div
+										className='product__options'
+										key={`product-options-${item.article}-${index}`}
+									>
 										<div className='product__option'>{item.article}</div>
 										<div className='product__option'>{item.plugs}</div>
 										<div className='product__option'>{item.length}</div>

@@ -1,5 +1,6 @@
-import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog';
 import { TProduct } from './catalog.type';
+import { ProductModal } from './catalog.card-modal';
+import { OptimizedImage } from '@/shared/ui/optimize-image';
 
 export function CatalogCard({
 	product,
@@ -27,7 +28,14 @@ export function CatalogCard({
 		<div className='catalog__card swiper-slide'>
 			<div className='catalog__card-wrapper'>
 				<div className='catalog__card-img-wrapper'>
-					<img className='catalog__card-img' src={product.images.main} />
+					<OptimizedImage
+						alt={`ТОРЕЛЕКТРО. КАРТОЧКА ТОВАРА ${product.title}-${index}`}
+						height={200}
+						width={200}
+						priority
+						className='catalog__card-img'
+						src={product.images.main}
+					/>
 				</div>
 				<div className='catalog__card-info'>
 					<p className='catalog__card-name'>{product.title} </p>
@@ -63,12 +71,12 @@ export function CatalogCard({
 							</p>
 						</div>
 					</div>
-					<Modal>
+					{/* <Modal>
 						<ModalTrigger className='catalog__card-button'>Посмотреть</ModalTrigger>
-						<ModalContent>
-							{/* <ProductModal products={items} index={index} /> */}
-						</ModalContent>
-					</Modal>
+						<ModalContent> */}
+					<ProductModal products={items} index={index} />
+					{/* </ModalContent>
+					</Modal> */}
 				</div>
 				{renderArticle(product)}
 			</div>

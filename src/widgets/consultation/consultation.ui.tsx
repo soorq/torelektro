@@ -1,4 +1,4 @@
-import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog/dialog';
+import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { ConsultationModal } from './consultation.modal';
 import './consultation.scss';
 
@@ -22,21 +22,25 @@ export function Consultation() {
 							просто оставляйте контакты <br />и получайте ответы на запросы
 						</span>
 					</p>
-					<Modal>
-						<ModalTrigger asChild>
+					<ConsultationModal
+						trigger={
 							<button className='consultation__button'>
 								Бесплатная консультация
 							</button>
-						</ModalTrigger>
-						<ModalContent className='popup'>
-							<ConsultationModal />
-						</ModalContent>
-					</Modal>
+						}
+						asChild
+					/>
 					<p className='consultation__disclaimer'>
 						бесплатная консультация предоставляется исключительно на основании запроса
 					</p>
 				</div>
-				<img src='/consultation/tele_2.png' alt='' className='consultation__img' />
+				<OptimizedImage
+					height={300}
+					width={550}
+					src='/consultation/tele_2.png'
+					alt=''
+					className='consultation__img'
+				/>
 			</div>
 		</section>
 	);
