@@ -22,12 +22,12 @@
 		"format": "prettier --write .",
 		"test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
 		"prepare": "husky install",
-		"e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
-		"e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
-		"component": "cypress open --component",
-		"component:headless": "cypress run --component",
-		"deps:check": "npx depcruise --config .dependency-cruiser.cjs src",
-		"deps:graphs": "npx depcruise src --include-only ^src --output-type dot | dot -T svg > ./docs/dependency/graph.svg"
+		"deps:graphs": "npx depcruise src --include-only ^src --output-type dot | dot -T svg > ./docs/dependency/graph.svg",
+		"cy:e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+		"cy:e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
+		"cy:component": "cypress open --component",
+		"cy:component:headless": "cypress run --component",
+		"deps:check": "npx depcruise --config .dependency-cruiser.cjs src"
 	},
 	"dependencies": {
 		"@phosphor-icons/react": "^2.1.7",
