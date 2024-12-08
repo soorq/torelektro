@@ -1,0 +1,127 @@
+.faq {
+	padding-top: 103px;
+	padding-bottom: 102px;
+	width: 100%;
+	&__title {
+		font-size: 30px;
+		line-height: 110%;
+		margin-bottom: 25px;
+	}
+	&__title span {
+		color: rgba(255, 61, 0, 1);
+	}
+	&__questions {
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+	}
+	&__question {
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 16px;
+		background: white;
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__question-cross {
+		transform: rotate(0deg);
+		transform-origin: center;
+		transition: 0.6s;
+	}
+	&__question.active {
+		height: 100%;
+		transition: 0.6s;
+	}
+	&__question.active &__question-body {
+		max-height: 200px;
+		transition: max-height 0.6s;
+	}
+	&__question.active &__question-header {
+		transition: 0.6s;
+	}
+	&__question.active &__question-cross {
+		transform: rotate(45deg);
+		transform-origin: center;
+		transition: 0.6s;
+	}
+	&__question-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		transition: 0.6s;
+		margin-bottom: 0px;
+	}
+	&__question-body {
+		overflow: hidden;
+		max-height: 0;
+		transition: max-height 0.6s;
+		&::before {
+			margin-top: 20px;
+			display: block;
+			content: '';
+			background: rgba(240, 240, 240, 1);
+			width: 100%;
+			height: 1px;
+			margin-bottom: 20px;
+			position: absolute;
+		}
+	}
+	&__question-answers {
+		padding-top: 40px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+	}
+	&__question-answer {
+		font-size: 18px;
+		line-height: 110%;
+		color: rgba(80, 80, 80, 1);
+		font-weight: 400;
+	}
+	&__question-name {
+		font-size: 18px;
+		line-height: 16px;
+	}
+	&__question-icon {
+		max-width: 37px;
+		max-height: 28px;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__question-answer.hide-mobile {
+		display: block;
+	}
+	&__question-answer.mobile {
+		display: none;
+	}
+
+	@media screen and (max-width: 820px) {
+		padding-top: 105px;
+		padding-bottom: 73px;
+
+		&__title {
+			font-size: 20px;
+			line-height: 22px;
+		}
+		&__wrapper {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		&__question-name {
+			font-size: 16px;
+			line-height: 17px;
+		}
+		&__question-answer {
+			font-size: 16px;
+			line-height: 120%;
+		}
+		&__question-answer.hide-mobile {
+			display: none;
+		}
+		&__question-answer.mobile {
+			display: block;
+		}
+	}
+}

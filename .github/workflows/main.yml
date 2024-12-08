@@ -1,0 +1,42 @@
+name: CI Pipeline
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    trigger-build:
+        runs-on: ubuntu-latest
+        environment: production
+        steps:
+            - name: Trigger Build
+              run: echo "Triggering build job"
+
+    trigger-lint:
+        runs-on: ubuntu-latest
+        needs: trigger-build
+        environment: production
+
+        steps:
+            - name: Trigger Lint
+              run: echo "Triggering lint job"
+
+    trigger-deploy:
+        runs-on: ubuntu-latest
+        needs: trigger-lint
+        environment: production
+        steps:
+            - name: Trigger Deploy
+              run: echo "Triggering deploy job"
+
+    trigger-notify:
+        runs-on: ubuntu-latest
+        needs: trigger-deploy
+        environment: production
+        steps:
+            - name: Trigger Notify
+              run: echo "Triggering notify job"

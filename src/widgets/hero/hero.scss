@@ -1,0 +1,243 @@
+.intro {
+	height: 650px;
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__texts {
+		max-width: 610px;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+	}
+	&__img-wrapper {
+		position: relative;
+		width: 780px;
+		height: 510px;
+		border-radius: 5px;
+	}
+
+	&__img {
+		-o-object-fit: cover;
+		object-fit: cover;
+		min-width: 780px;
+		height: 510px;
+		position: absolute;
+		right: 0px;
+		top: -104px;
+		z-index: -1;
+	}
+	&__title {
+		font-size: 36px;
+		line-height: 110%;
+		color: #101010;
+		margin-bottom: 34px;
+	}
+	&__title.mobile {
+		display: none;
+	}
+	&__subtitle {
+		font-size: 20px;
+		line-height: 110%;
+		max-width: 430px;
+		height: 123px;
+	}
+	&__disclaimer-political {
+		cursor: pointer;
+	}
+	&__button {
+		font-size: 18px;
+		line-height: normal;
+		color: rgba(255, 255, 255, 1);
+		height: 58px;
+		max-width: 380px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		margin-bottom: 25px;
+	}
+	&__description {
+		max-width: 380px;
+		font-size: 14px;
+		line-height: 110%;
+		color: rgba(144, 144, 144, 1);
+		text-align: center;
+		text-wrap: pretty;
+		align-items: center;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+	&__bottom {
+		width: 100%;
+		margin-bottom: 66px;
+	}
+
+	&__disclaimer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		z-index: 100;
+		background: rgba(16, 16, 16, 0.9);
+		padding-top: 640px;
+		width: 100vw;
+	}
+
+	&__disclaimer-wrapper {
+		padding: 9px;
+		background: white;
+		display: flex;
+		border-radius: 5px;
+		-moz-column-gap: 25px;
+		column-gap: 25px;
+		padding-left: 20px;
+		padding-top: 11px;
+		padding-bottom: 9px;
+		align-items: center;
+		position: sticky;
+		top: 15px;
+		width: 100%;
+		max-width: 1180px;
+	}
+	&__disclaimer-text {
+		font-size: 16px;
+		line-height: 16px;
+		width: 100%;
+		max-width: 760px;
+	}
+	&__disclaimer-text span {
+		text-decoration: underline;
+		color: #3366bb;
+	}
+	&__disclaimer-text.mobile {
+		display: none;
+	}
+	&__disclaimer-button-wrapper {
+		display: flex;
+		-moz-column-gap: 20px;
+		column-gap: 20px;
+		align-items: center;
+	}
+	&__disclaimer-button {
+		width: 320px;
+		height: 58px;
+		line-height: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-size: 18px;
+	}
+	&__disclaimer-close {
+		width: 20px;
+		height: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		cursor: pointer;
+	}
+	&__disclaimer-close-icon {
+		width: 15px;
+		height: 15px;
+	}
+
+	@media screen and (max-width: 820px) {
+		position: static;
+		height: auto;
+		&__disclaimer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100vw;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			z-index: 100;
+			background: rgba(16, 16, 16, 0.9);
+			padding-top: 376px;
+		}
+		&__disclaimer-wrapper {
+			position: -webkit-sticky;
+			position: sticky;
+			max-width: 350px;
+			flex-direction: column;
+			padding: 15px;
+			width: 100%;
+			top: 15px;
+			align-items: normal;
+		}
+		&__disclaimer-text {
+			display: none;
+		}
+		&__disclaimer-text.mobile {
+			display: block;
+			font-size: 14px;
+			margin-bottom: 25px;
+		}
+		&__disclaimer-button {
+			font-size: 16px;
+			max-width: 300px;
+		}
+		&__disclaimer-close {
+			max-width: 12.19px;
+			height: 12.19px;
+		}
+		&__disclaimer-button-wrapper {
+			display: flex;
+			-moz-column-gap: 15px;
+			column-gap: 15px;
+		}
+	}
+	@media screen and (max-width: 820px) {
+		&__img,
+		&__img-wrapper {
+			min-width: 100%;
+			display: flex;
+			margin-bottom: 10px;
+			width: 350px;
+			height: 225px;
+			position: static;
+		}
+
+		&__wrapper {
+			max-width: 390px;
+			flex-direction: column-reverse;
+		}
+		&__title {
+			font-size: 24px;
+			line-height: 26.4px;
+			width: 100%;
+			max-width: 390px;
+		}
+		&__button {
+			font-size: 16px;
+		}
+		&__title {
+			display: none;
+		}
+		&__title.mobile {
+			margin-bottom: 23px;
+			display: block;
+		}
+		&__subtitle {
+			max-width: 390px;
+			height: -webkit-fit-content;
+			height: -moz-fit-content;
+			height: fit-content;
+			font-size: 16px;
+			line-height: 110%;
+			margin-bottom: 25px;
+		}
+		&__bottom {
+			margin-bottom: 0;
+		}
+	}
+}

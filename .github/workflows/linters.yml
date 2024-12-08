@@ -1,0 +1,27 @@
+name: Lint Code
+
+on:
+    workflow_run:
+        workflows: ['Build Docker Image']
+        types:
+            - completed
+
+jobs:
+    linting:
+        runs-on: ubuntu-latest
+        needs: build-builder
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Docker login to GitHub Container Registry
+              run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+            - name: Run ESLint
+              run: docker run ghcr.io/${{ github.repository_owner }}/test:latest npm run check-lint
+
+            - name: Run Prettier
+              run: docker run ghcr.io/${{ github.repository_owner }}/test:latest npm run check-format
+
+            - name: Run TypeScript checks
+              run: docker run ghcr.io/${{ github.repository_owner }}/test:latest npm run check-types
