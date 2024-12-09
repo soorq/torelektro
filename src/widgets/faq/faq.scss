@@ -1,6 +1,5 @@
 .faq {
-	padding-top: 103px;
-	padding-bottom: 102px;
+	margin: 110px 0;
 	width: 100%;
 	&__title {
 		font-size: 30px;
@@ -98,9 +97,7 @@
 	}
 
 	@media screen and (max-width: 820px) {
-		padding-top: 105px;
-		padding-bottom: 73px;
-
+		margin: 50px 0;
 		&__title {
 			font-size: 20px;
 			line-height: 22px;

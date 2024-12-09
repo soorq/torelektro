@@ -3,7 +3,6 @@ import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { DocumentationModal } from '../documentation';
 import { VacancyModal } from '../vacancy';
 import { ContactModal } from '../contact';
-import { PolicyModal } from '../policy';
 import './footer.scss';
 
 export function Footer() {
@@ -92,13 +91,11 @@ export function Footer() {
 					определяемой действующим российским законодательством
 				</p>
 				<div className='footer__docs'>
-					<PolicyModal
-						trigger={
-							<p className='footer__docs-item footer-political'>
-								Политика конфиденциальности
-							</p>
-						}
-					/>
+					<OptimizedLink prefetch href='/policy'>
+						<p className='footer__docs-item footer-political'>
+							Политика конфиденциальности
+						</p>
+					</OptimizedLink>
 					<p className='footer__docs-item'>ООО «ТОРЭЛЕКТРО» · 1245000026600</p>
 				</div>
 				<div className='footer__map'>

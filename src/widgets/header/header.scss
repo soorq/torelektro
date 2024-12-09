@@ -1,13 +1,14 @@
 .header {
-	padding: 20px 0px;
-	padding-bottom: 104px;
+	margin: 20px 0px;
 	width: 100%;
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: nowrap;
 		align-items: center;
 		background: white;
 		padding: 10px;
+		flex-direction: row;
 		border-radius: 5px;
 		-moz-column-gap: 15px;
 		column-gap: 15px;
@@ -180,9 +181,7 @@
 	}
 
 	@media screen and (max-width: 820px) {
-		padding: 20px 0px;
 		max-width: 350px;
-		padding-bottom: 20px;
 		&__logo-wrapper {
 			width: 40px;
 			height: 40px;

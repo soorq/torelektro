@@ -1,9 +1,9 @@
 'use client';
 
 import { OptimizedImage } from '@/shared/ui/optimize-image';
+import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { ConsultationModal } from '../consultation';
 import { X } from '@phosphor-icons/react/dist/ssr';
-import { PolicyModal } from '../policy';
 import { useState } from 'react';
 import './hero.scss';
 
@@ -64,13 +64,10 @@ export function Hero() {
 							<p className='intro__disclaimer-text'>
 								Если вы продолжаете использовать наш интернет-сайт,
 								<br />
-								<PolicyModal
-									trigger={
-										<span className='intro__disclaimer-political'>
-											вы соглашаетесь с условиями политики конфиденциальности
-										</span>
-									}
-								/>
+								<OptimizedLink prefetch href='/policy'>
+									{' '}
+									вы соглашаетесь с условиями политики конфиденциальности
+								</OptimizedLink>
 								, тем самым,
 								<br />
 								помогаете нам сделать наш интернет-сайт комфортнее и полезнее для

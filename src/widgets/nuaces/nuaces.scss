@@ -1,5 +1,6 @@
 .nuances {
-	padding-bottom: 148px;
+	margin-bottom: 110px;
+
 	&__title {
 		color: #ff3d00;
 		font-size: 30px;
@@ -130,7 +131,6 @@
 	}
 
 	@media screen and (max-width: 820px) {
-		padding-bottom: 151px;
 		&__wrapper {
 			padding-left: 0px;
 			padding-right: 0px;

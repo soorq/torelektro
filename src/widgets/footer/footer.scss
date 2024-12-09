@@ -1,11 +1,9 @@
 .footer {
 	background: black;
-	padding: 60px 0px;
 	width: 100%;
-	display: flex;
-	justify-content: center;
 	&__wrapper {
 		display: flex;
+		padding: 60px 0px;
 		flex-direction: column;
 		row-gap: 33px;
 	}
@@ -99,9 +97,9 @@
 		border-radius: 5px;
 		overflow: hidden;
 		height: 150px;
+		width: 100%;
 	}
 	@media screen and (max-width: 820px) {
-		padding: 40px 0px 20px 0px;
 		&__logo-wrapper {
 			margin-bottom: 40px;
 		}
@@ -113,6 +111,7 @@
 		}
 		&__wrapper {
 			max-width: 350px;
+			padding: 40px 0px 20px 0px;
 			row-gap: 0;
 		}
 		&__info-items {
@@ -140,6 +139,7 @@
 		}
 		&__info {
 			flex-direction: column-reverse;
+			width: 100%;
 			display: flex;
 		}
 		&__socials {

@@ -1,6 +1,6 @@
-import { TProduct } from './catalog.type';
-import { ProductModal } from './catalog.card-modal';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
+import { ProductModal } from './catalog.card-modal';
+import type { TProduct } from './catalog.type';
 
 export function CatalogCard({
 	product,
@@ -71,12 +71,7 @@ export function CatalogCard({
 							</p>
 						</div>
 					</div>
-					{/* <Modal>
-						<ModalTrigger className='catalog__card-button'>Посмотреть</ModalTrigger>
-						<ModalContent> */}
 					<ProductModal products={items} index={index} />
-					{/* </ModalContent>
-					</Modal> */}
 				</div>
 				{renderArticle(product)}
 			</div>

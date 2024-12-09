@@ -1,7 +1,7 @@
 import { Modal, ModalContent, ModalTrigger, ModalTitle } from '@/shared/ui/dialog';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
+import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { ConsultationModal } from '../consultation';
-import { PolicyModal } from '../policy';
 import type { ReactNode } from 'react';
 
 import './vacancy.scss';
@@ -66,9 +66,9 @@ export function VacancyModal({ trigger, asChild }: { trigger: ReactNode; asChild
 							<p className='vacancy__disclaimer'>
 								нажимая, вы соглашаетесь
 								<br />
-								<PolicyModal
-									trigger={<span>с условиями политики конфиденциальности</span>}
-								/>
+								<OptimizedLink prefetch href='/policy'>
+									с условиями политики конфиденциальности
+								</OptimizedLink>
 							</p>
 						</div>
 					</div>

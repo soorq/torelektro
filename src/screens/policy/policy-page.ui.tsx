@@ -1,13 +1,13 @@
-import { Modal, ModalTrigger, ModalContent } from '@/shared/ui/dialog';
 import { OptimizedLink } from '@/shared/ui/optimize-link';
-import './policy.scss';
-import { ReactNode } from 'react';
+import { Header } from '@/widgets/header';
+import { Footer } from '@/widgets/footer';
+import './policy-page.scss';
 
-export function PolicyModal({ trigger, asChild }: { trigger: ReactNode; asChild?: boolean }) {
+export function PolicyPage() {
 	return (
-		<Modal>
-			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
-			<ModalContent>
+		<>
+			<Header />
+			<main className='container political'>
 				<h2 className='political__title'>Политика конфиденциальности</h2>
 				<div className='political__text-wrapper'>
 					<p className='political__text'>
@@ -233,7 +233,8 @@ export function PolicyModal({ trigger, asChild }: { trigger: ReactNode; asChild?
 						.
 					</p>
 				</div>
-			</ModalContent>
-		</Modal>
+			</main>
+			<Footer />
+		</>
 	);
 }

@@ -1,9 +1,9 @@
 'use client';
 
 import { OptimizedImage } from '@/shared/ui/optimize-image';
+import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { ModalTitle } from '@/shared/ui/dialog';
 import { IMaskInput } from 'react-imask';
-import { PolicyModal } from '../policy';
 import { useRef } from 'react';
 import './presentation.scss';
 
@@ -42,10 +42,10 @@ export function PresentationModal() {
 						<button className='popup__form-button'>Подробная презентация</button>
 						<p className='popup__disclamer'>
 							нажимая, вы соглашаетесь <br />
-							<PolicyModal
-								trigger={<span>с условиями политики конфиденциальности</span>}
-							/>
-							<span>с условиями политики конфиденциальности</span>
+							<OptimizedLink prefetch href='/policy'>
+								{' '}
+								с условиями политики конфиденциальности
+							</OptimizedLink>
 						</p>
 					</div>
 				</div>

@@ -1,4 +1,10 @@
 .political {
+	padding: 20px;
+	background: #fff;
+	border-radius: 6px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+
 	&__title {
 		font-size: 24px;
 		display: flex;
@@ -15,9 +21,7 @@
 		line-height: 17.6px;
 	}
 	&__text-wrapper {
-		max-height: 80dvh;
-		height: 100svh;
-		overflow-y: auto;
+		height: 100%;
 	}
 
 	&__text span {

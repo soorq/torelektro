@@ -2,9 +2,9 @@
 
 import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
+import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { type ReactNode, useRef } from 'react';
 import { IMaskInput } from 'react-imask';
-import { PolicyModal } from '../policy';
 import './consultation.scss';
 
 export function ConsultationModal({ trigger, asChild }: { trigger: ReactNode; asChild?: boolean }) {
@@ -46,11 +46,9 @@ export function ConsultationModal({ trigger, asChild }: { trigger: ReactNode; as
 								</button>
 								<p className='popup__disclamer'>
 									нажимая, вы соглашаетесь <br />
-									<PolicyModal
-										trigger={
-											<span>с условиями политики конфиденциальности</span>
-										}
-									/>
+									<OptimizedLink prefetch href='/policy'>
+										с условиями политики конфиденциальности
+									</OptimizedLink>
 								</p>
 							</div>
 						</div>

@@ -23,20 +23,18 @@ export function OptimizedImage({
 	const [isLoading, setLoading] = useState(true);
 
 	return (
-		<div className={'test'}>
-			<Image
-				src={src}
-				alt={alt}
-				width={width}
-				height={height}
-				priority={priority}
-				quality={90}
-				className={`image ${isLoading ? 'image__loading' : ''} ${className ? className : ''}`}
-				onLoadingComplete={() => setLoading(false)}
-				sizes='(max-width: 640px) 100vw,
+		<Image
+			src={src}
+			alt={alt}
+			width={width}
+			height={height}
+			priority={priority}
+			quality={90}
+			className={`image ${isLoading ? 'image__loading' : ''} ${className ? className : ''}`}
+			onLoadingComplete={() => setLoading(false)}
+			sizes='(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw'
-			/>
-		</div>
+		/>
 	);
 }
