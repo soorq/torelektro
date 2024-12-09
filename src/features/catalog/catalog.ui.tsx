@@ -12,7 +12,7 @@ import './catalog.scss';
 import 'swiper/css';
 
 export function Catalog() {
-	const sliderRef = useRef<SwiperT>(null);
+	const sliderRef = useRef<SwiperT | null>(null);
 
 	const [tab, setTab] = useState(0);
 
