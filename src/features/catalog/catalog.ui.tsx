@@ -149,6 +149,9 @@ export function Catalog() {
 							nextEl: '.catalog__next-icon',
 							prevEl: '.catalog__prev-icon',
 						}}
+						onSwiper={swiper => {
+							sliderRef.current = swiper;
+						}}
 					>
 						{PRODUCTS[tab].items.map((product, i) => {
 							return (

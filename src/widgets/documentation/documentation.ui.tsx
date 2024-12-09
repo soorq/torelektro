@@ -12,7 +12,7 @@ export function DocumentationModal({
 	return (
 		<Modal>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
-			<ModalContent>
+			<ModalContent className='dialog'>
 				<ModalTitle className='documentation__title'>Документация</ModalTitle>
 				<div className='documentation__items'>
 					<div className='documentation__item'>

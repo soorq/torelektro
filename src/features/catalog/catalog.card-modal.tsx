@@ -45,7 +45,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 	return (
 		<Modal>
 			<ModalTrigger className='catalog__card-button'>Посмотреть</ModalTrigger>
-			<ModalContent>
+			<ModalContent className='product'>
 				<div className='product__card'>
 					<div className='product__card-header'>
 						<div className='product__card-variants'>

@@ -10,7 +10,7 @@ export function VacancyModal({ trigger, asChild }: { trigger: ReactNode; asChild
 	return (
 		<Modal>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
-			<ModalContent>
+			<ModalContent className='dialog'>
 				<ModalTitle className='vacancy__title'>
 					Вакансия для амбициозных, сильных и коммуникабельных
 				</ModalTitle>
@@ -67,7 +67,7 @@ export function VacancyModal({ trigger, asChild }: { trigger: ReactNode; asChild
 								нажимая, вы соглашаетесь
 								<br />
 								<OptimizedLink prefetch href='/policy'>
-									с условиями политики конфиденциальности
+									<span>с условиями политики конфиденциальности</span>
 								</OptimizedLink>
 							</p>
 						</div>

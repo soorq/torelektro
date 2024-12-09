@@ -32,6 +32,7 @@
 		transform: translateX(0);
 		padding-left: 0;
 		padding-right: 0;
+		padding: 0;
 		.popup__wrapper {
 			max-width: 350px;
 		}
@@ -39,10 +40,11 @@
 			font-size: 16px;
 			height: 30px;
 			margin-bottom: 15px;
+			align-self: flex-start;
 		}
 		&__wrapper {
-			max-width: 350px;
-			padding: 15px;
+			max-width: 320px;
+			padding: 15px 0;
 		}
 		&__text-wrapper {
 			font-size: 8px;

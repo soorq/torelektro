@@ -47,7 +47,7 @@ export function ConsultationModal({ trigger, asChild }: { trigger: ReactNode; as
 								<p className='popup__disclamer'>
 									нажимая, вы соглашаетесь <br />
 									<OptimizedLink prefetch href='/policy'>
-										с условиями политики конфиденциальности
+										<span>с условиями политики конфиденциальности</span>
 									</OptimizedLink>
 								</p>
 							</div>

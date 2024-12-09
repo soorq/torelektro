@@ -6,7 +6,7 @@ export function ContactModal({ trigger, asChild }: { trigger: ReactNode; asChild
 	return (
 		<Modal>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
-			<ModalContent>
+			<ModalContent className='dialog'>
 				<ModalTitle className='contacts__title'>Контактная информация</ModalTitle>
 				<div className='contacts__info-items'>
 					<div className='contacts__map'>

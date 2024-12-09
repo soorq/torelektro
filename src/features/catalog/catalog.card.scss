@@ -8,7 +8,6 @@
 		background: white;
 		width: 100%;
 		border-radius: 5px;
-		height: 580px;
 	}
 	&__card-info {
 		width: 100%;
@@ -394,7 +393,7 @@
 	&__slider-prev,
 	&__slider-next {
 		position: absolute;
-		top: 43%;
+		top: 30%;
 		z-index: 5;
 		width: 50px;
 		height: 50px;

@@ -10,16 +10,7 @@ const font = localFont({
 			style: 'normal',
 			weight: '700',
 		},
-		{
-			path: '../public/fonts/Evolventa-BoldOblique.woff',
-			style: 'normal',
-			weight: '600',
-		},
-		{
-			path: '../public/fonts/Evolventa-Oblique.woff',
-			style: 'normal',
-			weight: '500',
-		},
+
 		{
 			path: '../public/fonts/Evolventa-Regular.woff',
 			style: 'normal',

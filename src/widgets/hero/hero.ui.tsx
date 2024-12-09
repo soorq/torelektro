@@ -66,7 +66,9 @@ export function Hero() {
 								<br />
 								<OptimizedLink prefetch href='/policy'>
 									{' '}
-									вы соглашаетесь с условиями политики конфиденциальности
+									<span>
+										вы соглашаетесь с условиями политики конфиденциальности
+									</span>
 								</OptimizedLink>
 								, тем самым,
 								<br />
