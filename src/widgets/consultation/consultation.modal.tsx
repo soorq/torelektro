@@ -3,20 +3,44 @@
 import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { OptimizedLink } from '@/shared/ui/optimize-link';
-import { type ReactNode, useRef } from 'react';
+import { FormEvent, type ReactNode } from 'react';
+import { MailService } from '@/shared/api/mail';
 import { IMaskInput } from 'react-imask';
 import './consultation.scss';
 
-export function ConsultationModal({ trigger, asChild }: { trigger: ReactNode; asChild?: boolean }) {
-	const ref = useRef(null);
-	const inputRef = useRef(null);
+export function ConsultationModal({
+	trigger,
+	asChild,
+	sku,
+}: {
+	trigger: ReactNode;
+	asChild?: boolean;
+	sku?: string;
+}) {
+	const handler = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const phone = new FormData(e.currentTarget).get('phone')?.toString();
+
+		try {
+			if (sku) {
+				// eslint-disable-next-line
+				const status = await MailService.order({ dto: { phone: phone ?? '', sku } });
+			} else {
+				// eslint-disable-next-line
+				const status = await MailService.consultation({ dto: { phone: phone ?? '' } });
+			}
+		} catch (error) {
+			throw new Error(error?.toString());
+		}
+	};
 
 	return (
 		<Modal>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
 			<ModalContent>
 				<div className='popup__body'>
-					<form className='popup__form'>
+					<form className='popup__form' action='#' onSubmit={handler}>
 						<div className='popup__form-wrapper'>
 							<h2 className='popup__form-title hide-mobile'>
 								<span>Пожалуйста</span>, оставьте ваши контакты, чтобы мы
@@ -33,8 +57,6 @@ export function ConsultationModal({ trigger, asChild }: { trigger: ReactNode; as
 								<IMaskInput
 									mask='+{7} 000 000 00 00'
 									value='+7'
-									ref={ref}
-									inputRef={inputRef}
 									className='popup__input'
 									lazy={false}
 									placeholderChar=' '

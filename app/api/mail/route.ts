@@ -3,9 +3,8 @@ import Mail from 'nodemailer/lib/mailer';
 import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
-	const { email, name, message } = await request.json();
-
-	console.log(process.env.SMTP_HOST, process.env.SMTP_PASS, process.env.SMTP_USER);
+	const body = await request.json();
+	console.log(body);
 
 	const transport = nodemailer.createTransport({
 		service: 'yandex',
@@ -21,8 +20,8 @@ export async function POST(request: NextRequest) {
 	const mailOptions: Mail.Options = {
 		from: process.env.SMTP_USER,
 		to: process.env.SMTP_USER,
-		subject: `Message from ${name} (${email})`,
-		text: message,
+		subject: `Новая заявка: ${body.type} - ${body.phone} `,
+		text: `Номер сотового телефона: ${body.phone}. Откуда отправлено: ${body.type}. ${body?.sku ? 'Артикуль заказа ' + body.sku : ''}`,
 	};
 
 	const sendMailPromise = () =>

@@ -1,12 +1,10 @@
-//  @ts-nocheck
 'use client';
 
 import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { ShoppingCart } from '@phosphor-icons/react/dist/ssr';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
-import type { Swiper as TSwiper } from 'swiper/types';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 import type { TProduct } from './catalog.type';
 import { useState, useRef } from 'react';
 
@@ -14,9 +12,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './catalog.card.scss';
 import 'swiper/css';
+import { ConsultationModal } from '@/widgets/consultation';
 
 export function ProductModal({ products, index }: { products: TProduct['items']; index: number }) {
-	const sliderRef = useRef<TSwiper>(null);
+	const sliderRef = useRef<SwiperRef>(null);
 	const [number, setNumber] = useState(index);
 	const [tab, setTab] = useState(0);
 
@@ -27,7 +26,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 			setNumber(0);
 		}
 		if (sliderRef.current) {
-			sliderRef.current.slideTo(0);
+			sliderRef.current.swiper.slideTo(0);
 		}
 	};
 	const prevElem = (products: TProduct['items'], index: number) => {
@@ -38,9 +37,13 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 			setNumber(products.length - 1);
 		}
 		if (sliderRef.current) {
-			sliderRef.current.slideTo(0);
+			sliderRef.current.swiper.slideTo(0);
 		}
 	};
+
+	const maxMinSqMetrs =
+		products[number].variants[tab].options[products[number].variants[tab].options.length - 1]
+			.length;
 
 	return (
 		<Modal>
@@ -164,6 +167,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 							<div className='product__card-img-slider swiper'>
 								<div className='product__card-img-slider-wrapper swiper-wrapper'>
 									<Swiper
+										ref={sliderRef}
 										loop={true}
 										spaceBetween={20}
 										modules={[Navigation, Pagination, Autoplay]}
@@ -179,9 +183,6 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 										autoplay={{
 											delay: 3000,
 											disableOnInteraction: false,
-										}}
-										onSwiper={swiper => {
-											sliderRef.current = swiper;
 										}}
 									>
 										{Object.entries(products[number].images.gallery[0]).map(
@@ -211,7 +212,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 										height={200}
 										priority
 										className='product__slider-left'
-										src={'product/slider-right.svg'}
+										src={'/product/slider-right.svg'}
 									/>
 								</div>
 							</div>
@@ -222,7 +223,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 									height={200}
 									priority
 									className='product__slider-right'
-									src={'product/slider-right.svg'}
+									src={'/product/slider-right.svg'}
 								/>
 							</div>
 							<div className='product__img-stickers'>
@@ -231,14 +232,11 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 										([key, val]) => {
 											if (key === 'length') {
 												return (
-													<div className='product__img-sticker' key={key}>
-														от {val} до{' '}
-														{
-															products[number].variants[tab].options[
-																products[number].variants[tab]
-																	.options.length - 1
-															].length
-														}
+													<div
+														className='product__img-sticker'
+														key={`products-img-sticker-${key}`}
+													>
+														от {val} до {maxMinSqMetrs}
 													</div>
 												);
 											}
@@ -352,11 +350,17 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 														: 'без заземления'}
 												</div>
 												<div className='product__add'>
-													<ShoppingCart
-														size={15}
-														className='product__add-icon'
-														weight='fill'
-														color='#fff'
+													<ConsultationModal
+														asChild
+														sku={item.article.toString()}
+														trigger={
+															<ShoppingCart
+																size={15}
+																className='product__add-icon'
+																weight='fill'
+																color='#fff'
+															/>
+														}
 													/>
 												</div>
 											</div>

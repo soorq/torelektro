@@ -3,17 +3,30 @@
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { ModalTitle } from '@/shared/ui/dialog';
+import { MailService } from '@/shared/api/mail';
 import { IMaskInput } from 'react-imask';
-import { useRef } from 'react';
+import { FormEvent } from 'react';
 import './presentation.scss';
 
 export function PresentationModal() {
-	const ref = useRef(null);
-	const inputRef = useRef(null);
+	const handler = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const dto: Record<string, string> = Object.assign(
+			Object.fromEntries(new FormData(e.currentTarget)),
+		);
+
+		try {
+			// eslint-disable-next-line
+			const status = await MailService.presentation({ dto });
+		} catch (error) {
+			throw new Error(error?.toString());
+		}
+	};
 
 	return (
 		<div className='popup__body'>
-			<form className='popup__form'>
+			<form action='#' className='popup__form' onSubmit={handler}>
 				<div className='popup__form-wrapper'>
 					<ModalTitle className='popup__form-title hide-mobile'>
 						<span>Пожалуйста</span>, оставьте ваши контакты, чтобы мы отправили вам
@@ -31,15 +44,18 @@ export function PresentationModal() {
 							mask='+{7} 000 000 00 00'
 							value='+7'
 							unmask={true}
-							ref={ref}
-							inputRef={inputRef}
 							className='popup__input'
+							required
+							minLength={16}
 							lazy={false}
-							placeholderChar=' '
+							id='phone'
+							name='phone'
 						/>
 					</div>
 					<div className='popup__button-wrapper'>
-						<button className='popup__form-button'>Подробная презентация</button>
+						<button className='popup__form-button' type='submit'>
+							Подробная презентация
+						</button>
 						<p className='popup__disclamer'>
 							нажимая, вы соглашаетесь <br />
 							<OptimizedLink prefetch href='/policy'>

@@ -1,4 +1,6 @@
-export const PRODUCTS = [
+import { TProduct } from '@/features/catalog/catalog.type';
+
+export const PRODUCTS: TProduct[] = [
 	{
 		category: 1,
 		items: [
@@ -1549,15 +1551,9 @@ export const PRODUCTS = [
 				grounding: true,
 				isProfessional: false,
 				isSpec: false,
-				options: {
-					isEco: false,
-					isGost: false,
-				},
 				temp: 'от +40°C до -60°C ',
 				copper: '100% медь',
-
 				category: 2,
-
 				variants: [
 					{
 						variant: 3500,
@@ -1688,13 +1684,7 @@ export const PRODUCTS = [
 				isSpec: false,
 				temp: 'от +40°C до -60°C ',
 				copper: '100% медь',
-
-				options: {
-					isEco: false,
-					isGost: false,
-				},
 				category: 2,
-
 				variants: [
 					{
 						variant: 3500,
@@ -1825,12 +1815,7 @@ export const PRODUCTS = [
 				isSpec: false,
 				temp: 'от +40°C до -60°C ',
 				copper: '100% медь',
-				options: {
-					isEco: false,
-					isGost: false,
-				},
 				category: 2,
-
 				variants: [
 					{
 						variant: 3500,
@@ -1964,12 +1949,7 @@ export const PRODUCTS = [
 				temp: 'от +40°C до -60°C ',
 				copper: '100% медь',
 				isSpec: false,
-				options: {
-					isEco: true,
-					isGost: false,
-				},
 				category: 2,
-
 				variants: [
 					{
 						variant: 3500,
@@ -2047,16 +2027,9 @@ export const PRODUCTS = [
 				grounding: true,
 				isProfessional: true,
 				isSpec: false,
-				isPlastic: true,
-				isMetalic: false,
 				temp: 'от +40°C до -60°C ',
 				copper: '100% медь',
-				options: {
-					isEco: false,
-					isGost: false,
-				},
 				category: 2,
-
 				variants: [
 					{
 						variant: 3500,
@@ -2170,14 +2143,9 @@ export const PRODUCTS = [
 				grounding: true,
 				isProfessional: true,
 				isSpec: false,
-				isPlastic: false,
-				isMetalic: true,
-				isCatushka: true,
 				temp: 'от +40°C до -60°C ',
 				copper: '100% медь',
-				options: {},
 				category: 2,
-
 				variants: [
 					{
 						variant: 3500,

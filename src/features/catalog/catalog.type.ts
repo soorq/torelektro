@@ -4,25 +4,27 @@ export type TProduct = {
 		title: string;
 		description: string;
 		mobiledescrip: string;
+		isSpec?: boolean;
+		temp?: string;
 		grounding: boolean;
 		isProfessional: boolean;
 		category: number;
-		socket: string;
+		socket?: string;
+		fulltitle?: string;
+		isPlastic?: boolean;
 		copper: string;
-		variants: [
-			{
-				variant: number;
-				options: {
-					article: number;
-					plugs: string;
-					length: string;
-					security: string;
-					power: string;
-					socket: string;
-					grounding: boolean;
-				}[];
-			},
-		];
+		variants: {
+			variant: number;
+			options: {
+				article: number;
+				plugs: string;
+				length: string;
+				security: string;
+				power: string;
+				socket: string;
+				grounding: boolean;
+			}[];
+		}[];
 		images: {
 			main: string;
 			gallery: Record<number, string>[];
