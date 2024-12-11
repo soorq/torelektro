@@ -4,11 +4,14 @@ import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { ModalTitle } from '@/shared/ui/dialog';
 import { MailService } from '@/shared/api/mail';
+import parsePhoneNumber from 'libphonenumber-js';
+
 import { IMaskInput } from 'react-imask';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import './presentation.scss';
 
 export function PresentationModal() {
+	const [isValid, setIsValid] = useState<boolean | null>();
 	const handler = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -16,11 +19,16 @@ export function PresentationModal() {
 			Object.fromEntries(new FormData(e.currentTarget)),
 		);
 
-		try {
-			// eslint-disable-next-line
-			const status = await MailService.presentation({ dto });
-		} catch (error) {
-			throw new Error(error?.toString());
+		const number = parsePhoneNumber(dto.phone.trim());
+		if (number?.isValid() == true) {
+			try {
+				// eslint-disable-next-line
+				const status = await MailService.presentation({ dto });
+			} catch (error) {
+				throw new Error(error?.toString());
+			}
+		} else {
+			setIsValid(false);
 		}
 	};
 
@@ -44,7 +52,7 @@ export function PresentationModal() {
 							mask='+{7} 000 000 00 00'
 							value='+7'
 							unmask={true}
-							className='popup__input'
+							className={`popup__input ${isValid == false ? 'invalid' : ''}`}
 							required
 							minLength={16}
 							lazy={false}

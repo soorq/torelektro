@@ -62,6 +62,7 @@ export function VacancyModal({ trigger, asChild }: { trigger: ReactNode; asChild
 										Анкета для заполнения
 									</button>
 								}
+								className='main-dialog'
 							/>
 							<p className='vacancy__disclaimer'>
 								нажимая, вы соглашаетесь

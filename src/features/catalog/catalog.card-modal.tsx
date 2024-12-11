@@ -44,7 +44,6 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 	const maxMinSqMetrs =
 		products[number].variants[tab].options[products[number].variants[tab].options.length - 1]
 			.length;
-
 	return (
 		<Modal>
 			<ModalTrigger className='catalog__card-button'>Посмотреть</ModalTrigger>
@@ -306,10 +305,15 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 										></h2>
 									</div>
 								</div>
-
-								<button className='product__card-button'>
-									Бесплатная консультация
-								</button>
+								<ConsultationModal
+									asChild
+									className='main-dialog'
+									trigger={
+										<button className='product__card-button'>
+											Бесплатная консультация
+										</button>
+									}
+								/>
 
 								{products[number].isProfessional ? (
 									<div className='product__stickers'>
@@ -353,6 +357,7 @@ export function ProductModal({ products, index }: { products: TProduct['items'];
 													<ConsultationModal
 														asChild
 														sku={item.article.toString()}
+														className='main-dialog'
 														trigger={
 															<ShoppingCart
 																size={15}

@@ -27,7 +27,7 @@ const ModalContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
 	return (
 		<Dialog.Portal>
-			<Dialog.Overlay className='overlay' />
+			<Dialog.Overlay className={`overlay ${className && className}`} />
 			<Dialog.Content {...props} ref={ref} className={`${className} content`}>
 				<Dialog.Close className='close' asChild>
 					<button aria-label='закрыть'>
