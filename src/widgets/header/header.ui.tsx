@@ -10,23 +10,18 @@ export function Header() {
 		<header className='header'>
 			<div className='header__wrapper container'>
 				<div className='header__logo-wrapper'>
-					<OptimizedLink href='/'>
-						<picture>
-							<source
-								srcSet={'/logo/header/index-390.png'}
-								media='(max-width:820px)'
-							/>
+					<picture>
+						<source srcSet={'/logo/header/index-390.png'} media='(max-width:820px)' />
 
-							<OptimizedImage
-								src={'/logo/header/index.png'}
-								height={40}
-								width={212}
-								priority
-								alt=''
-								className='header__logo'
-							/>
-						</picture>
-					</OptimizedLink>
+						<OptimizedImage
+							src={'/logo/header/index.png'}
+							height={40}
+							width={212}
+							priority
+							alt=''
+							className='header__logo'
+						/>
+					</picture>
 				</div>
 				<div className='header__info'>
 					<OptimizedLink href='tel:+7 916 083 39 30'>

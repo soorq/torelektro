@@ -2,23 +2,27 @@
 
 import { Modal, ModalContent, ModalTrigger } from '@/shared/ui/dialog';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
-import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { FormEvent, useState, type ReactNode } from 'react';
 import { MailService } from '@/shared/api/mail';
 import { IMaskInput } from 'react-imask';
-import parsePhoneNumber from 'libphonenumber-js';
+import parsePhoneNumber, { isPossiblePhoneNumber } from 'libphonenumber-js';
 import './consultation.scss';
+import { PolicyModal } from '../policy/policy.modal';
 
 export function ConsultationModal({
 	trigger,
 	asChild,
 	sku,
 	className,
+	open,
+	onOpenChange,
 }: {
-	trigger: ReactNode;
+	trigger?: ReactNode;
 	asChild?: boolean;
 	sku?: string;
 	className?: string;
+	open?: boolean;
+	onOpenChange?: (open: boolean) => void;
 }) {
 	const [isValid, setIsValid] = useState<boolean | null>();
 	const [sent, setSent] = useState<boolean>(false);
@@ -27,8 +31,9 @@ export function ConsultationModal({
 
 		const phone: string | any = new FormData(e.currentTarget).get('phone')?.toString();
 
-		const number = parsePhoneNumber(phone.trim());
-		if (number?.isValid() == true) {
+		const number = parsePhoneNumber(phone.trim(), 'RU');
+		const numberValid = isPossiblePhoneNumber(phone);
+		if (number?.isValid() == true || numberValid == true) {
 			try {
 				if (sku) {
 					// eslint-disable-next-line
@@ -50,7 +55,7 @@ export function ConsultationModal({
 	};
 
 	return (
-		<Modal>
+		<Modal open={open} onOpenChange={onOpenChange}>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
 			<ModalContent className={className}>
 				<div className='popup__body'>
@@ -78,6 +83,7 @@ export function ConsultationModal({
 									lazy={false}
 									id='phone'
 									name='phone'
+									placeholderChar=' '
 								/>
 							</div>
 							<div className='popup__button-wrapper'>
@@ -88,9 +94,12 @@ export function ConsultationModal({
 								</button>
 								<p className='popup__disclamer'>
 									нажимая, вы соглашаетесь <br />
-									<OptimizedLink prefetch href='/policy'>
-										<span>с условиями политики конфиденциальности</span>
-									</OptimizedLink>
+									<PolicyModal
+										trigger={
+											<span>с условиями политики конфиденциальности</span>
+										}
+										className='transparent'
+									/>
 								</p>
 							</div>
 						</div>

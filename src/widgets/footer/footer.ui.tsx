@@ -1,11 +1,19 @@
+'use client';
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { DocumentationModal } from '../documentation';
 import { VacancyModal } from '../vacancy';
 import { ContactModal } from '../contact';
 import './footer.scss';
+import { PolicyModal } from '../policy/policy.modal';
 
 export function Footer() {
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	};
 	return (
 		<footer className='footer'>
 			<div className='container footer__wrapper'>
@@ -35,19 +43,30 @@ export function Footer() {
 						<ul className='footer__info-items'>
 							<VacancyModal
 								trigger={
-									<li className='footer__info-item footer-vacancy'>Вакансия</li>
+									<li
+										className='footer__info-item footer-vacancy'
+										onClick={scrollToTop}
+									>
+										Вакансия
+									</li>
 								}
 							/>
 							<DocumentationModal
 								trigger={
-									<li className='footer__info-item footer-document'>
+									<li
+										className='footer__info-item footer-document'
+										onClick={scrollToTop}
+									>
 										Документация
 									</li>
 								}
 							/>
 							<ContactModal
 								trigger={
-									<li className='footer__info-item footer-contact'>
+									<li
+										className='footer__info-item footer-contact'
+										onClick={scrollToTop}
+									>
 										Контактная информация
 									</li>
 								}
@@ -91,11 +110,14 @@ export function Footer() {
 					определяемой действующим российским законодательством
 				</p>
 				<div className='footer__docs'>
-					<OptimizedLink prefetch href='/policy'>
-						<p className='footer__docs-item footer-political'>
-							Политика конфиденциальности
-						</p>
-					</OptimizedLink>
+					<PolicyModal
+						trigger={
+							<p className='footer__docs-item footer-political' onClick={scrollToTop}>
+								Политика конфиденциальности
+							</p>
+						}
+					/>
+
 					<p className='footer__docs-item'>ООО «ТОРЭЛЕКТРО» · 1245000026600</p>
 				</div>
 				<div className='footer__map'>

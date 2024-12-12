@@ -1,16 +1,16 @@
 .overlay {
 	position: fixed;
 	inset: 0;
-	height: 100%;
+	height: 100dvh;
 	background: rgba(0, 0, 0, 0.8);
 	z-index: 100;
 }
 
 .content {
 	position: fixed;
-	left: 49.6%;
+	left: 50%;
 	top: 52%;
-	transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-51%) translateY(-50%);
 	z-index: 101;
 	max-width: 1180px;
 	width: 100%;
@@ -18,8 +18,15 @@
 	background-color: #fff;
 	border-radius: 6px;
 }
+
 .content.dialog,
 .content.product {
+	padding: 20px;
+}
+.content.policy {
+	max-width: 1180px;
+	height: 86dvh;
+	top: 57%;
 	padding: 20px;
 }
 .content.dialog {
@@ -31,6 +38,9 @@
 }
 .content.product {
 	height: 580px;
+}
+.overlay.transparent {
+	background: none;
 }
 
 .close {
@@ -81,5 +91,8 @@
 	.content.product {
 		padding: 0;
 		height: auto;
+	}
+	.content.policy {
+		padding: 20px;
 	}
 }

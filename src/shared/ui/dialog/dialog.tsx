@@ -28,7 +28,12 @@ const ModalContent = React.forwardRef<
 	return (
 		<Dialog.Portal>
 			<Dialog.Overlay className={`overlay ${className && className}`} />
-			<Dialog.Content {...props} ref={ref} className={`${className} content`}>
+			<Dialog.Content
+				{...props}
+				ref={ref}
+				className={`${className} content`}
+				onCloseAutoFocus={e => e.preventDefault()}
+			>
 				<Dialog.Close className='close' asChild>
 					<button aria-label='закрыть'>
 						<X className='close__icon' weight='bold' size={25} />

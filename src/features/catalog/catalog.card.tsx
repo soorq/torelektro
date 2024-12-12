@@ -45,9 +45,7 @@ export function CatalogCard({
 								сечение кабеля: <br />
 							</p>
 							<p className='catalog__char-value'>
-								{product.variants.map(item => {
-									return item.options[0].plugs + ' · ';
-								})}
+								{product.variants.map(item => item.options[0].plugs).join(' · ')}{' '}
 							</p>
 						</div>
 						<div className='catalog__char'>

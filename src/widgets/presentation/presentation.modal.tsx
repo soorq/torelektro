@@ -1,14 +1,14 @@
 'use client';
 
 import { OptimizedImage } from '@/shared/ui/optimize-image';
-import { OptimizedLink } from '@/shared/ui/optimize-link';
 import { ModalTitle } from '@/shared/ui/dialog';
 import { MailService } from '@/shared/api/mail';
-import parsePhoneNumber from 'libphonenumber-js';
+import parsePhoneNumber, { isPossiblePhoneNumber } from 'libphonenumber-js';
 
 import { IMaskInput } from 'react-imask';
 import { FormEvent, useState } from 'react';
 import './presentation.scss';
+import { PolicyModal } from '../policy/policy.modal';
 
 export function PresentationModal() {
 	const [isValid, setIsValid] = useState<boolean | null>();
@@ -19,8 +19,9 @@ export function PresentationModal() {
 			Object.fromEntries(new FormData(e.currentTarget)),
 		);
 
-		const number = parsePhoneNumber(dto.phone.trim());
-		if (number?.isValid() == true) {
+		const number = parsePhoneNumber(dto.phone.trim(), 'RU');
+		const numberValid = isPossiblePhoneNumber(dto.phone);
+		if (number?.isValid() == true || numberValid == true) {
 			try {
 				// eslint-disable-next-line
 				const status = await MailService.presentation({ dto });
@@ -58,6 +59,7 @@ export function PresentationModal() {
 							lazy={false}
 							id='phone'
 							name='phone'
+							placeholderChar=' '
 						/>
 					</div>
 					<div className='popup__button-wrapper'>
@@ -66,10 +68,10 @@ export function PresentationModal() {
 						</button>
 						<p className='popup__disclamer'>
 							нажимая, вы соглашаетесь <br />
-							<OptimizedLink prefetch href='/policy'>
-								{' '}
-								<span>с условиями политики конфиденциальности</span>
-							</OptimizedLink>
+							<PolicyModal
+								trigger={<span>с условиями политики конфиденциальности</span>}
+								className='transparent'
+							/>
 						</p>
 					</div>
 				</div>
