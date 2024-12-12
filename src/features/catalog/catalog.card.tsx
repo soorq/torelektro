@@ -1,6 +1,7 @@
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { ProductModal } from './catalog.card-modal';
 import type { TProduct } from './catalog.type';
+import React from 'react';
 
 export function CatalogCard({
 	product,
@@ -45,7 +46,13 @@ export function CatalogCard({
 								сечение кабеля: <br />
 							</p>
 							<p className='catalog__char-value'>
-								{product.variants.map(item => item.options[0].plugs).join(' · ')}{' '}
+								{' '}
+								{product.variants.map((item, index) => (
+									<React.Fragment key={index}>
+										{item.options[0].plugs}
+										{index < product.variants.length - 1 && <span> · </span>}
+									</React.Fragment>
+								))}
 							</p>
 						</div>
 						<div className='catalog__char'>
@@ -53,6 +60,7 @@ export function CatalogCard({
 								длина кабеля: <br />
 							</p>
 							<p className='catalog__char-value'>
+								{' '}
 								от {product.variants[0].options[0].length} до{' '}
 								{
 									product.variants[0].options[
@@ -64,6 +72,7 @@ export function CatalogCard({
 						<div className='catalog__char'>
 							<p className='catalog__char-name'> защита кабеля:</p>
 							<p className='catalog__char-value'>
+								{' '}
 								{product.variants[0].options[0].security} <span> · </span>
 								{product.grounding == true ? 'с заземлением' : 'без заземления'}
 							</p>

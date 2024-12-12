@@ -1,6 +1,8 @@
 import { OptimizedImage } from '@/shared/ui/optimize-image';
 import { ConsultationModal } from './consultation.modal';
 import './consultation.scss';
+import Lenis from 'lenis';
+import 'lenis/dist/lenis.css';
 
 export function Consultation() {
 	return (

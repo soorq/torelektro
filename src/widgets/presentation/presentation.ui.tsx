@@ -12,13 +12,13 @@ export function Presentation() {
 						Если вы занимаетесь <span>продажами</span>, или{' '}
 						<span>производственными проектами</span>, или, просто хотите производить
 						<br />
-						под своим собственным брендом —<span>смело скачивайте презентацию</span>
+						под своим собственным брендом — <span>смело скачивайте презентацию</span>
 					</p>
 					<Modal>
 						<ModalTrigger asChild>
 							<button className='presentation__button'>Подробная презентация</button>
 						</ModalTrigger>
-						<ModalContent>
+						<ModalContent className='dialog'>
 							<PresentationModal />
 						</ModalContent>
 					</Modal>

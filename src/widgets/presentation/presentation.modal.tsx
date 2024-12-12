@@ -51,15 +51,13 @@ export function PresentationModal() {
 						<p className='popup__input-name'>номер сотового телефона</p>
 						<IMaskInput
 							mask='+{7} 000 000 00 00'
-							value='+7'
 							unmask={true}
 							className={`popup__input ${isValid == false ? 'invalid' : ''}`}
 							required
 							minLength={16}
-							lazy={false}
+							lazy={true}
 							id='phone'
 							name='phone'
-							placeholderChar=' '
 						/>
 					</div>
 					<div className='popup__button-wrapper'>

@@ -8,6 +8,11 @@
 		display: flex;
 		align-items: center;
 	}
+	&__wrapper {
+		border-radius: 5px;
+		background: white;
+		padding: 20px;
+	}
 	&__item {
 		display: grid;
 		grid-template-columns: minmax(0, 815px) minmax(0, 130px) minmax(0, 130px) minmax(0, 50px);

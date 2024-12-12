@@ -5,6 +5,12 @@
 		font-weight: 400;
 		margin-bottom: 20px;
 	}
+	&__wrapper {
+		background: white;
+		padding: 20px;
+		border-radius: 5px;
+		width: 100%;
+	}
 	&__info-items {
 		display: flex;
 		-moz-column-gap: 20px;

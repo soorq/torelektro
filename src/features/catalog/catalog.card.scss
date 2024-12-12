@@ -8,6 +8,7 @@
 		background: white;
 		width: 100%;
 		border-radius: 5px;
+		padding: 20px;
 	}
 	&__card-info {
 		width: 100%;
@@ -202,7 +203,7 @@
 		opacity: 50%;
 	}
 	&__card-img-wrapper {
-		background: rgba(240, 240, 240, 1);
+		background: white;
 		max-width: 470px;
 		height: 470px;
 		width: 100%;
@@ -269,7 +270,7 @@
 		border-radius: 5px;
 		display: flex;
 		font-size: 14px;
-		line-height: 17px;
+		line-height: 18px;
 		align-items: center;
 		justify-content: center;
 		max-width: 130px;

@@ -83,7 +83,7 @@ export function Hero() {
 									для каждого человека
 								</p>
 								<p className='intro__disclaimer-text mobile'>
-									Если вы продолжаете использовать наш интернет-сайт,
+									Если вы продолжаете использовать наш интернет-сайт,{' '}
 									<span
 										className='intro__disclaimer-political'
 										onClick={openPolicy}
@@ -132,7 +132,13 @@ export function Hero() {
 					)}
 				</div>
 			</section>
-			<PolicyModal asChild open={policyOpen} onOpenChange={setPolicyOpen} trigger={null} />
+			<PolicyModal
+				className='transparent'
+				asChild
+				open={policyOpen}
+				onOpenChange={setPolicyOpen}
+				trigger={null}
+			/>
 		</>
 	);
 }
