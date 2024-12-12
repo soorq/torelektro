@@ -10,7 +10,7 @@
 	position: fixed;
 	left: 50%;
 	top: 52%;
-	transform: translateX(-51%) translateY(-50%);
+	transform: translateX(-50.6%) translateY(-50%);
 	z-index: 101;
 	max-width: 1180px;
 	width: 100%;
@@ -22,6 +22,9 @@
 .content.dialog,
 .content.product {
 	padding: 20px;
+}
+.content.vacancy {
+	padding-bottom: 0;
 }
 .content.policy {
 	max-width: 1180px;
@@ -48,8 +51,8 @@
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: -30px;
-	right: 0px;
+	top: -33px;
+	right: 2px;
 	cursor: pointer;
 	width: 25px;
 	height: 25px;

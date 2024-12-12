@@ -107,6 +107,7 @@
 		top: 15px;
 		width: 100%;
 		max-width: 1180px;
+		transform: translateX(-7px);
 	}
 	&__disclaimer-text {
 		font-size: 16px;
@@ -175,6 +176,7 @@
 			width: 100%;
 			top: 15px;
 			align-items: normal;
+			transform: translateX(0px);
 		}
 		&__disclaimer-text {
 			display: none;

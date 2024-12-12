@@ -22,6 +22,7 @@ export function ConsultationModal({
 	sku?: string;
 	className?: string;
 	open?: boolean;
+	// eslint-disable-next-line
 	onOpenChange?: (open: boolean) => void;
 }) {
 	const [isValid, setIsValid] = useState<boolean | null>();
@@ -55,7 +56,7 @@ export function ConsultationModal({
 	};
 
 	return (
-		<Modal open={open} onOpenChange={onOpenChange}>
+		<Modal open={open && open} onOpenChange={onOpenChange}>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
 			<ModalContent className={className}>
 				<div className='popup__body'>

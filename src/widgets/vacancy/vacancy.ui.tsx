@@ -26,7 +26,7 @@ export function VacancyModal({ trigger, asChild }: { trigger: ReactNode; asChild
 		<>
 			<Modal open={isMainModalOpen} onOpenChange={setIsMainModalOpen}>
 				<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
-				<ModalContent className='dialog'>
+				<ModalContent className='dialog vacancy'>
 					<ModalTitle className='vacancy__title'>
 						Вакансия для амбициозных, сильных и коммуникабельных
 					</ModalTitle>

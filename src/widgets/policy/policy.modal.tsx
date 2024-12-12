@@ -15,10 +15,11 @@ export function PolicyModal({
 	asChild?: boolean;
 	className?: string;
 	open?: boolean;
+	// eslint-disable-next-line
 	onOpenChange?: (open: boolean) => void;
 }) {
 	return (
-		<Modal open={open} onOpenChange={onOpenChange}>
+		<Modal open={open && open} onOpenChange={onOpenChange}>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
 
 			<ModalContent className={`policy ${className && className}`}>

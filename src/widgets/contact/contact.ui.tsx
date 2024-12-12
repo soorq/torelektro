@@ -1,13 +1,9 @@
 'use client';
 import { Modal, ModalContent, ModalTrigger, ModalTitle } from '@/shared/ui/dialog/dialog';
-import { useEffect, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import './contact.scss';
 
 export function ContactModal({ trigger, asChild }: { trigger: ReactNode; asChild?: boolean }) {
-	useEffect(() => {
-		console.log('da');
-		window.scrollTo(0, 0);
-	}, []);
 	return (
 		<Modal>
 			<ModalTrigger asChild={asChild}>{trigger}</ModalTrigger>
