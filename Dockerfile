@@ -18,7 +18,13 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ARG NEXT_PUBLIC_APP_URL
+ARG SMTP_USER
+ARG SMTP_PASS
+ARG SMTP_HOST
 ENV NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
+ENV SMTP_PASS=${SMTP_PASS}
+ENV SMTP_USER=${SMTP_USER}
+ENV SMTP_HOST=${SMTP_HOST}
 
 RUN \
   if [ -f yarn.lock ]; then yarn run build; \
