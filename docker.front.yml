@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  front:
+    image: front:latest
+    container_name: front
+    hostname: front
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env.production
+    ports:
+      - '3000:3000'
+    restart: always
